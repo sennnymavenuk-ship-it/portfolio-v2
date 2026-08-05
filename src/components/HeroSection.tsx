@@ -113,13 +113,29 @@ export const HeroSection = () => {
         <div className="relative flex justify-center lg:justify-end">
           <div className="relative">
             <div className="absolute -inset-4 rounded-full bg-cyan-500/20 blur-2xl" />
+            {/* Rotating dashed ring */}
+            <svg
+              className="absolute -inset-6 w-[calc(100%+3rem)] h-[calc(100%+3rem)] animate-spin-slow"
+              viewBox="0 0 100 100"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="48"
+                fill="none"
+                stroke="#22d3ee"
+                strokeWidth="0.5"
+                strokeDasharray="4 6"
+                opacity="0.6"
+              />
+            </svg>  
             <motion.img
               src={profilePhoto}
               alt={HERO.name}
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7 }}
-              className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover border-2 border-cyan-400/50"
+              className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full object-cover object-top border-2 border-cyan-400/50"
             />
 
             {/* Floating badge: top right */}
