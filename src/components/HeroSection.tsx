@@ -113,22 +113,28 @@ export const HeroSection = () => {
         <div className="relative flex justify-center lg:justify-end">
           <div className="relative">
             <div className="absolute -inset-4 rounded-full bg-cyan-500/20 blur-2xl" />
-            {/* Rotating dashed ring */}
-            <svg
-              className="absolute -inset-6 w-[calc(100%+3rem)] h-[calc(100%+3rem)] animate-spin-slow"
-              viewBox="0 0 100 100"
-            >
-              <circle
-                cx="50"
-                cy="50"
-                r="48"
-                fill="none"
-                stroke="#22d3ee"
-                strokeWidth="0.5"
-                strokeDasharray="4 6"
-                opacity="0.6"
-              />
-            </svg>  
+            {/* Rotating star ring */}
+            <div className="absolute -inset-6 w-[calc(100%+3rem)] h-[calc(100%+3rem)] animate-spin-slow">
+              <svg className="w-full h-full" viewBox="0 0 100 100">
+                {Array.from({ length: 16 }).map((_, i) => {
+                  const angle = (i / 16) * 2 * Math.PI;
+                  const radius = 48;
+                  const cx = 50 + radius * Math.cos(angle);
+                  const cy = 50 + radius * Math.sin(angle);
+                  const size = i % 2 === 0 ? 1.6 : 1; // alternate bigger/smaller stars
+
+                  return (
+                    <path
+                      key={i}
+                      d="M0,-2 L0.5,-0.6 L2,-0.6 L0.8,0.3 L1.2,1.8 L0,1 L-1.2,1.8 L-0.8,0.3 L-2,-0.6 L-0.5,-0.6 Z"
+                      fill="#22d3ee"
+                      opacity={i % 2 === 0 ? 0.9 : 0.5}
+                      transform={`translate(${cx}, ${cy}) scale(${size})`}
+                    />
+                  );
+                })}
+              </svg>
+</div>  
             <motion.img
               src={profilePhoto}
               alt={HERO.name}

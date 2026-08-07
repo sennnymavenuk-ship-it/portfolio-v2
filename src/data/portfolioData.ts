@@ -164,7 +164,7 @@ export const PROJECTS = [
     linkLabel: "🚀 Live App"
   },
 
-  {
+  /*{
     icon: "🏥",
     title: "Dhasai Physio Care",
     subtitle: "React + Vite + TypeScript + Tailwind CSS",
@@ -172,7 +172,7 @@ export const PROJECTS = [
     tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel"],
     link: "https://dhasai-physio-care.vercel.app/",
     linkLabel: "🚀 Live Site"
-  },
+  },*/
   
   {
     icon: "🔬",
